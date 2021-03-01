@@ -15,22 +15,18 @@
         android:progressDrawable="@drawable/circular_progress_bar"
         android:layout_centerInParent="true" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <com.shamanland.fab.FloatingActionButton
         android:id="@+id/settingsButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
         android:background="@android:color/transparent"
         android:contentDescription="@string/settingsButton"
-        app:backgroundTint="@android:color/transparent"
-        app:fabCustomSize="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:src="@mipmap/ic_launcher_round"
+        app:floatingActionButtonColor="@android:color/transparent"
+        app:floatingActionButtonSize="mini" />
 
     <org.mozilla.geckoview.GeckoView
         android:id="@+id/geckoView"
