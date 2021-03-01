@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name" translatable="false">W3Browser</string>
+    <string name="location_hint" translatable="false">https://w3coach.de</string>
+    <string name="settings">Settings</string>
+    <string name="settingsButton" translatable="false">SettingsButton</string>
+    <string name="desktop_mode">Desktop Mode</string>
+    <string name="website">Website (call with https://)</string>
+    <string name="copyright" translatable="false">Copyright © 2021, NASS e.K.</string>
+    <string name="set_home_button" translatable="false">Set home button</string>
+    <string name="set_launcher_button" translatable="false">Set launcher button</string>
+    <string name="settings_save_button" translatable="false">Settings save button</string>
+    <string name="system_settings_button" translatable="false">System settings button</string>
+    <string name="code_or_help">Enter code or \'h\' for help</string>
+    <string name="auto_start">Start with system</string>
+    <string name="cancel">Cancel</string>
+    <string name="an_error_occurred">An error occurred:\u0020</string>
+    <string name="teamviewerbutton" translatable="false">teamviewerButton</string>
+    <string name="anydeskbutton" translatable="false">anydeskButton</string>
+    <string name="closebutton" translatable="false">closeButton</string>
+    <string name="logo" translatable="false">logo</string>
+    <string name="helpText" translatable="false">If installed, you will see buttons for TeamviewerⓇ Quicksupport™ or AnydeskⓇ above. Please start the programs on request of the support.\n\nIf no button(s) can be seen, head over to the GoogleⓇ Playstore™ and install either TeamviewerⓇ Quicksupport™ or AnydeskⓇ.</string>
+</resources>

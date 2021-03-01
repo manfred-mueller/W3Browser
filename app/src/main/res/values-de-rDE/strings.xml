@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings">Einstellungen</string>
+    <string name="desktop_mode">Desktopmodus</string>
+    <string name="website">Webseite (mit https:// aufrufen)</string>
+    <string name="code_or_help">Code oder \'h\' für Hilfe</string>
+    <string name="auto_start">Mit System starten</string>
+    <string name="cancel">Abbrechen</string>
+    <string name="an_error_occurred">Ein Fehler ist aufgetreten:\u0020</string>
+    <string name="helpText" translatable="false">Sofern installiert, sehen Sie oben Schaltflächen für TeamviewerⓇ Quicksupport™ oder AnydeskⓇ. Bitte starten Sie die Programme nur auf Aufforderung und nennen dem Supportmitarbeiter die Ihnen angezeigte ID.\n\nFalls keine Schaltflächen zu sehen sind, installieren Sie TeamviewerⓇ Quicksupport™ oder AnydeskⓇ aus dem GoogleⓇ Playstore™.</string>
+</resources>
