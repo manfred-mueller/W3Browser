@@ -68,6 +68,7 @@ public class SupportActivity extends AppCompatActivity {
         }
         return pkgInfo != null;
     }
+
     public void hideKeyboard(View v) {
         InputMethodManager imm = (InputMethodManager) this.getSystemService(Activity.INPUT_METHOD_SERVICE);
 

@@ -1,13 +1,13 @@
 package com.nass.ek.w3browser;
 
 import android.app.Activity;
-import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -39,12 +39,30 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     private final GeckoSessionSettings.Builder settingsBuilder = new GeckoSessionSettings.Builder();
     private ProgressBar mProgressView;
     Context context = this;
+    private int currentApiVersion;
+    String tvUri = "com.teamviewer.quicksupport.market";
+    String adUri = "com.anydesk.anydeskandroid";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mProgressView = findViewById(R.id.progressBar);
+
+        currentApiVersion = Build.VERSION.SDK_INT;
+        final int flags = View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
+                View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION |
+                View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
+                View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
+        if (currentApiVersion >= Build.VERSION_CODES.KITKAT) {
+            getWindow().getDecorView().setSystemUiVisibility(flags);
+            final View decorView = getWindow().getDecorView();
+            decorView.setOnSystemUiVisibilityChangeListener(visibility -> {
+                if ((visibility & View.SYSTEM_UI_FLAG_FULLSCREEN) == 0) {
+                    decorView.setSystemUiVisibility(flags);
+                }
+            });
+        }
 
         setupSettings();
         setupGeckoView();
@@ -79,7 +97,16 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                     else if (PwInput.equals(PASSWORD)) {
                         Intent startSettingsActivityIntent = new Intent(getApplicationContext(), SettingsActivity.class);
                         startActivity(startSettingsActivityIntent);
-                    } else {
+                    }
+                    else if (PwInput.equals("teamviewer")) {
+                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + tvUri));
+                        startActivity(intent);
+                    }
+                    else if (PwInput.equals("anydesk")) {
+                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + adUri));
+                        startActivity(intent);
+                    }
+                     else {
                         checkPassword(getString(R.string.code_or_help));
                     }
                 });
@@ -181,6 +208,22 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        mGeckoSession.goBack();
+    }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if (currentApiVersion >= Build.VERSION_CODES.KITKAT && hasFocus) {
+            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
+                    View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION |
+                    View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
+                    View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+        }
+    }
+
     private class createBlockingDelegate implements ContentBlocking.Delegate {
 
         String ERROR = getString(R.string.an_error_occurred);
@@ -197,8 +240,4 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             assert url != null;
         }
     }
-
 }
-
-
-
