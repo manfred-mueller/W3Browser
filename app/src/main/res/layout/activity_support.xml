@@ -26,7 +26,7 @@
 
             <ImageButton
                 android:id="@+id/tv_Button"
-                android:layout_width="365dp"
+                android:layout_width="310dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:contentDescription="@string/teamviewerbutton"
@@ -36,7 +36,7 @@
 
             <ImageButton
                 android:id="@+id/ad_Button"
-                android:layout_width="365dp"
+                android:layout_width="310dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:contentDescription="@string/anydeskbutton"
@@ -44,22 +44,26 @@
                 android:visibility="gone"
                 app:srcCompat="@drawable/anydesk" />
 
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="310dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:text="@string/helpText"
+                app:layout_constraintTop_toTopOf="@+id/imageView" />
+
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="5dp"
                 android:contentDescription="@string/logo"
+                android:scaleX="0.5"
+                android:scaleY="0.5"
                 app:srcCompat="@drawable/logo" />
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="365dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="@string/helpText"
-                app:layout_constraintTop_toTopOf="@+id/imageView" />
         </LinearLayout>
     </ScrollView>
 

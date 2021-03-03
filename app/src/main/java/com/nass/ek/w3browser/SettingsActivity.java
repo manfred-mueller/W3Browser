@@ -5,7 +5,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.View;
@@ -20,7 +19,7 @@ import androidx.preference.PreferenceManager;
 public class SettingsActivity extends AppCompatActivity {
 
     Context context = this;
-
+    public String arch = System.getProperty("os.arch");
     @SuppressLint("ApplySharedPref")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,14 +42,7 @@ public class SettingsActivity extends AppCompatActivity {
 
             e = findViewById(R.id.urlEditText);
             editor.putString("url", e.getText().toString());
-
-            if (!Build.CPU_ABI.startsWith("arm")) {
-                editor.commit();
-            }
-            else {
-                editor.apply();
-            }
-
+            editor.commit();
             restartApp();
         });
 

@@ -165,6 +165,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
         mGeckoView.requestFocus();
         hideKeyboard(this);
+        findViewById(R.id.settingsButton).bringToFront();
     }
 
     private void hideKeyboard(Activity activity) {
