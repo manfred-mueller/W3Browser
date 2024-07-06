@@ -36,6 +36,9 @@ jobs:
     - name: Make Gradle wrapper executable (optional)
       run: chmod +x ./gradlew
 
+    - name: Set right gradle version
+      run: ./gradlew wrapper --gradle-version 7.3
+
     - name: Build with Gradle
       run: ./gradlew assembleRelease  # Adjust the command based on your build requirements
 
