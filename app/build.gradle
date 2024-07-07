@@ -2,17 +2,16 @@ apply plugin: 'com.android.application'
 
 ext {
     geckoviewChannel = "" //if nightly or beta wanted use "-nightly" or "-beta"
-    geckoviewVersion = "127.0.20240624183754"
+    geckoviewVersion = "115.0.20230726201356"
 }
 
 android {
     compileSdk 34
-    buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "com.nass.ek.w3browser"
         minSdkVersion 21
-        targetSdkVersion 34
+        targetSdkVersion 33
         versionCode rootProject.ext.verCode
         versionName rootProject.ext.verName
         setProperty("archivesBaseName", "w3browser-$versionName")
