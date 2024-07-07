@@ -7,6 +7,38 @@ ext {
 
 android {
     compileSdk 34
+    def keyProps = new Properties()
+    def keyPropsFile = rootProject.file('keystore/credentials')
+
+    if (keyPropsFile.exists()) {
+        keyProps.load(new FileInputStream(keyPropsFile))
+    }
+    lintOptions {
+        warningsAsErrors false
+        abortOnError false
+    }
+
+    signingConfigs {
+        dev {
+            v2SigningEnabled true
+        }
+        buildTypes {
+            debug {
+                buildConfigField("String", "BUILD_TIME", "\"" + System.currentTimeMillis().toString() + "\"")
+                buildConfigField 'String', "API_NAME", API_NAME
+                buildConfigField 'String', "API_KEY", API_KEY
+                buildConfigField 'String', "API_URL", API_URL
+                buildConfigField 'String', "UPDATE_URL", UPDATE_URL
+            }
+            release {
+                buildConfigField("String", "BUILD_TIME", "\"" + System.currentTimeMillis().toString() + "\"")
+                buildConfigField 'String', "API_NAME", API_NAME
+                buildConfigField 'String', "API_KEY", API_KEY
+                buildConfigField 'String', "API_URL", API_URL
+                buildConfigField 'String', "UPDATE_URL", UPDATE_URL
+            }
+        }
+    }
 
     defaultConfig {
         applicationId "com.nass.ek.w3browser"
@@ -19,6 +51,15 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        release {
+            keyAlias keyProps['keyAlias']
+            keyPassword keyProps['keyPassword']
+            storeFile keyProps['storeFile'] ? file(keyProps['storeFile']) : null
+            storePassword keyProps['storePassword']
+        }
+    }
+
     buildTypes {
         compileOptions {
             sourceCompatibility JavaVersion.VERSION_11
@@ -26,6 +67,7 @@ android {
         }
         release {
             minifyEnabled false
+            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -38,7 +80,7 @@ dependencies {
     implementation 'androidx.gridlayout:gridlayout:1.0.0'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'androidx.preference:preference:1.2.1'
-    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'com.google.android.material:material:1.11.0'
 
 
     implementation ("org.mozilla.geckoview:geckoview${geckoviewChannel}:${geckoviewVersion}") {
