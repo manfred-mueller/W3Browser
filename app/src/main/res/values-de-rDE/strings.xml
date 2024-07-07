@@ -8,4 +8,6 @@
     <string name="cancel">Abbrechen</string>
     <string name="an_error_occurred">Ein Fehler ist aufgetreten:\u0020</string>
     <string name="helpText" translatable="false">Falls installiert, sehen Sie oben Schaltflächen für TeamviewerⓇ oder AnydeskⓇ. Bitte starten Sie diese Programme nur auf Aufforderung und nennen dem Supportmitarbeiter die Ihnen angezeigte ID.\n\nFalls oben keine Schaltflächen zu sehen sind, installieren Sie TeamviewerⓇ Quicksupport™ oder AnydeskⓇ aus dem GoogleⓇ Playstore™.</string>
+    <string name="additional_perms">Weitere Berechtingungen erforderlich!</string>
+    <string name="cam_permission">Camera-Zugriff abgelehnt, keine Aufnahmen möglich!</string>
 </resources>

@@ -19,4 +19,6 @@
     <string name="closebutton" translatable="false">closeButton</string>
     <string name="logo" translatable="false">logo</string>
     <string name="helpText" translatable="false">If installed, you will see buttons for TeamviewerⓇ or AnydeskⓇ above. Please start these apps on request of the support only.\n\nIf no button(s) can be seen, head over to the GoogleⓇ Playstore™ and install either TeamviewerⓇ Quicksupport™ or AnydeskⓇ.</string>
+    <string name="additional_perms">Additional permissions are needed!</string>
+    <string name="cam_permission">Camera access denied, recording impossible!</string>
 </resources>
