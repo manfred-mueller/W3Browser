@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 ext {
     geckoviewChannel = "" //if nightly or beta wanted use "-nightly" or "-beta"
-    geckoviewVersion = "115.0.20230726201356"
+    geckoviewVersion = "127.0.20240624183754"
 }
 
 android {
